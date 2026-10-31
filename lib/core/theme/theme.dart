@@ -31,29 +31,46 @@ final darkColorScheme = ColorScheme.fromSeed(
 );
 
 final textTheme = TextTheme(
-  displayLarge: GoogleFonts.googleSansCode(),
-  displayMedium: GoogleFonts.googleSansCode(),
-  displaySmall: GoogleFonts.googleSansCode(),
-  titleLarge: GoogleFonts.googleSansCode(),
-  titleMedium: GoogleFonts.googleSansCode(),
-  titleSmall: GoogleFonts.googleSansCode(),
-  bodyLarge: GoogleFonts.googleSansCode(),
-  bodyMedium: GoogleFonts.googleSansCode(),
-  bodySmall: GoogleFonts.googleSansCode(),
-  labelLarge: GoogleFonts.googleSansCode(),
-  labelMedium: GoogleFonts.googleSansCode(),
-  labelSmall: GoogleFonts.googleSansCode(),
+  displayLarge: GoogleFonts.googleSansFlex(),
+  displayMedium: GoogleFonts.googleSansFlex(),
+  displaySmall: GoogleFonts.googleSansFlex(),
+  titleLarge: GoogleFonts.googleSansFlex(),
+  titleMedium: GoogleFonts.googleSansFlex(),
+  titleSmall: GoogleFonts.googleSansFlex(),
+  bodyLarge: GoogleFonts.inter(),
+  bodyMedium: GoogleFonts.inter(),
+  bodySmall: GoogleFonts.inter(),
+  labelLarge: GoogleFonts.inter(),
+  labelMedium: GoogleFonts.inter(),
+  labelSmall: GoogleFonts.inter(),
 );
 
 final defaultTheme = ThemeData(
   textTheme: textTheme,
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      shadowColor: .fromARGB(0, 0, 0, 0),
+    ),
+  ),
+  textButtonTheme: TextButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
     ),
   ),
 );
 
-final lightTheme = defaultTheme.copyWith(colorScheme: lightColorScheme);
+final lightTheme = defaultTheme.copyWith(
+  colorScheme: lightColorScheme,
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      shadowColor: .fromARGB(0, 0, 0, 0),
+      backgroundColor: lightColorScheme.primary,
+      foregroundColor: lightColorScheme.onPrimary,
+      textStyle: textTheme.labelLarge!.copyWith(fontWeight: .bold),
+    ),
+  ),
+);
 
 final darkTheme = defaultTheme.copyWith(colorScheme: darkColorScheme);
