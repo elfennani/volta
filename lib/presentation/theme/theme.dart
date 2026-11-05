@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:volta/core/constants/colors.dart';
+import 'package:volta/presentation/theme/colors.dart';
 
 final lightColorScheme = ColorScheme.fromSeed(
   seedColor: primaryLight,

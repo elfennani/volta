@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:volta/core/components/app_transition.dart';
-import 'package:volta/core/theme/theme.dart';
-import 'package:volta/features/authentication/presentation/views/code_entry_view.dart';
-import 'package:volta/features/authentication/presentation/views/phone_entry_view.dart';
-import 'package:volta/features/authentication/presentation/views/welcome_view.dart';
+import 'package:volta/presentation/widgets/app_transition.dart';
+import 'package:volta/presentation/theme/theme.dart';
+import 'package:volta/presentation/views/auth/code_entry_view.dart';
+import 'package:volta/presentation/views/auth/phone_entry_view.dart';
+import 'package:volta/presentation/views/auth/welcome_view.dart';
 
 final router = GoRouter(
-  initialLocation: "/code",
+  initialLocation: "/",
   routes: [
     GoRoute(
       path: "/",
@@ -18,8 +18,10 @@ final router = GoRouter(
       pageBuilder: (context, state) => AppTransition(child: PhoneEntryView()),
     ),
     GoRoute(
-      path: "/code",
-      pageBuilder: (context, state) => AppTransition(child: CodeEntryView()),
+      path: "/code/:phone",
+      pageBuilder: (context, state) => AppTransition(
+        child: CodeEntryView(phone: state.pathParameters["phone"]!),
+      ),
     ),
   ],
 );

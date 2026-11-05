@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:volta/features/authentication/presentation/views/code_entry.dart';
+
+import './widgets/code_entry.dart';
 
 class CodeEntryView extends StatefulWidget {
-  const CodeEntryView({super.key});
+  const CodeEntryView({super.key, required this.phone});
+
+  final String phone;
 
   @override
   State<CodeEntryView> createState() => _CodeEntryViewState();
@@ -43,7 +46,7 @@ class _CodeEntryViewState extends State<CodeEntryView> {
                       style: Theme.of(context).textTheme.displaySmall,
                     ),
                     Text(
-                      "We’ve sent a 6-digit verification code to +212 6XX XXX XXX.",
+                      "We’ve sent a 6-digit verification code to ${widget.phone}",
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     CodeTextField(),
